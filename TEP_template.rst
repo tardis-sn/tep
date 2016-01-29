@@ -33,7 +33,7 @@ TEPs go through a number of phases in their lifetime:
 Responsible
 ===========
 
-
+A list of people that should be pinged if there is some discussion of this proposal.
 
 Branches and Pull requests
 ==========================
@@ -44,13 +44,8 @@ All pull requests submitted relating to this TEP should be linked to
 from here.  (A TEP does not need to be implemented in a single pull
 request if it makes sense to implement it in discrete phases).
 
-Abstract
-========
-
-The abstract should be a short description of what the TEP will achieve.
-
-Detailed description
-====================
+Description
+===========
 
 This section describes the need for the TEP.  It should describe the
 existing problem that it is trying to solve and why this TEP makes the
