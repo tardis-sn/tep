@@ -28,7 +28,7 @@ TRAVIS and for swift development.
 
 Ensuring to enable running of full-tests in a useful way this TEP aims to
 work on two major issues:
-1. allowing to create ``slow'' tests that are normally disabled
+1. allowing to create "slow" tests that are normally disabled
 2a. finding a way to run those in regular intervals
 2b. finding a way to couple the outcome of those to GitHub.
 
