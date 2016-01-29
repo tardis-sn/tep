@@ -10,8 +10,8 @@ eventually a decision is made regarding whether the proposal should be
 accepted, rejected, or modified.
 
 We foresee the general process of a TEP starting with a PR to the TEP repository.
-At this stage, the TEP should have a title, abstract and some description of the
-proposed changes. We strongly encourage an accompanying PR to the main TARDIS
+At this stage, the TEP should have a title and some description of the
+proposed changes. We encourage an accompanying PR to the main TARDIS
 repository with some code or pseudo-code that quickly showcases the proposed changes. Once the group has iterated over the documented and agreed to implement
 the proposed changes the TEP is merged. If things change during the implementation the TEP should be amended.
 
