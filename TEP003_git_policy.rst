@@ -1,15 +1,4 @@
-==============
- TEP Template
-==============
-
-
-This TEP template is a guideline of the sections that a TEP should
-contain.  Extra sections may be added if appropriate, and unnecessary
-sections may be noted as such.
-
-The TEP should start with a title:
-
-TEPXXX: Meaningful title
+TEP003: Git Policy
 ========================
 
 Status
