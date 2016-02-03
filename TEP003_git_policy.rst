@@ -40,10 +40,12 @@ In addition to the rules above the following should be avoided:
   for commiting
 
 Further best practice for git commit messages can be found here:
+
 * http://chris.beams.io/posts/git-commit/
 * http://who-t.blogspot.de/2009/12/on-commit-messages.html
 
 Information about selectively commiting only some changes to a file can be found here:
+
 * http://johnkary.net/blog/git-add-p-the-most-powerful-git-feature-youre-not-using-yet/
 * http://nuclearsquid.com/writings/git-add/
 
