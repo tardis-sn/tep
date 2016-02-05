@@ -36,8 +36,7 @@ into several steps:
 
 1. Parse the YAML file with PyYaml
 
-2. Validate the data with a schema:
-TARDIS validates the given information (e.g. that v_inner is given
+2. Validate the data with a schema: TARDIS validates the given information (e.g. that v_inner is given
 as a quantity). TARDIS also uses the schema to complete information that is not
 given in the current configuration file (e.g. default values). Thus the schema
 also serves as an important document that will document the available options.
