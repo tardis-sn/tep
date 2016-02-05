@@ -1,74 +1,73 @@
-==============
- TEP Template
-==============
-
-
-This TEP template is a guideline of the sections that a TEP should
-contain.  Extra sections may be added if appropriate, and unnecessary
-sections may be noted as such.
-
-The TEP should start with a title:
-
-TEPXXX: Meaningful title
-========================
+TEP005: Formal Integral Method for noise-free spectra
+=====================================================
 
 Status
 ======
 
-TEPs go through a number of phases in their lifetime:
-
-- **Discussion**: The TEP is being actively discussed and is
-  being improved by its author.  The mailing list
-  discussion of the TEP should include the TEP number (TEPxxx) in the
-  subject line so they can be easily related to the TEP.
-
-- **Progress**: Consensus was reached on the mailing list and
-  implementation work has begun.
-
-- **Completed**: The implementation has been merged into master.
-
-- **Superseded**: This TEP has been abandoned in favor of another
-  approach.
+**Discussion**
 
 Responsible
 ===========
 
-A list of people that should be pinged if there is some discussion of this proposal.
+@unoebauer
 
 Branches and Pull requests
 ==========================
 
-All development branches containing work on this TEP should be linked to from here.
-
-All pull requests submitted relating to this TEP should be linked to
-from here.  (A TEP does not need to be implemented in a single pull
-request if it makes sense to implement it in discrete phases).
+N/A
 
 Description
 ===========
 
-This section describes the need for the TEP.  It should describe the
-existing problem that it is trying to solve and why this TEP makes the
-situation better.  It should include examples of how the new
-functionality would be used and perhaps some use cases.
+The main drawback of Monte Carlo methods is the inevitable introduction of
+stochastic fluctuations, i.e. noise. In the case of Tardis, this is particular
+relevant for the synthetic spectrum, the main product of Tardis calculations:
+to perform a detailed spectral analysis, the line features must be
+distinguishable from the noise. Thus, devising and implementing algorithms to
+improve the signal-to-noise ratio are crucial a curcial part of the Tardis
+development process.
+
+Currently, the so-called virtual packet scheme (see `Long & Knigge 2002`_, `Sim et
+al. 2010`_, `Kerzendorf & Sim 2014`_) is used in Tardis to improve the fidelity of
+the calculated synthetic spectra. Spectra calculated with this scheme are still
+subject to noise, but its main advantage lies in its applicability to cases
+with complex line-interaction treatments (e.g.  the Macro Atom scheme).
+
+In cases in which only the resonance-scattering or the downbranching line
+interaction treatments are used, a compelling alternative to the virtual packet
+scheme exists. This approach, relying on a formal integration of the source
+function has been developed by `Lucy 1999`_ and produces noise-free spectra.
+
+This formal-integral approach should be implemented into Tardis and made an
+alternative to the virtual packet scheme, whenever the scatter or downbranch
+line interaction modes are used.
+
+.. _Lucy 1999: http://adsabs.harvard.edu/abs/1999A&A...345..211L
+.. _Long & Knigge 2002: http://adsabs.harvard.edu/abs/2002ApJ...579..725L
+.. _Sim et al. 2010: http://adsabs.harvard.edu/abs/2010MNRAS.404.1369S
+.. _Kerzendorf & Sim 2014: http://adsabs.harvard.edu/abs/2014MNRAS.440..387K
 
 Implementation
 ==============
 
-This section lists the major steps required to implement the TEP.
-Where possible, it should be noted where one step is dependent on
-another, and which steps may be optionally omitted.  Where it makes
-sense, each step should include a link related pull requests as the
-implementation progresses.
+* The main procedure, namely determining the line emissivities an performing
+  the integral should be performed in the C-part of Tardis
+* It should be activated through the configuration file
+* Some safety checks should be in place, e.g. not allowing the parallel use of
+  the formal integral and the virtual packet scheme or prohibiting the use of
+  the formal integral approach in conjunction with the macroatom line
+  interaction treatment
 
 Backward compatibility
 ======================
 
-This section describes the ways in which the TEP breaks backward incompatibility.
+Should not affect backwards compatibility. The virtual packet scheme will not
+be affected by this.
 
 Alternatives
 ============
 
-If there were any alternative solutions to solving the same problem,
-they should be discussed here, along with a justification for the
-chosen approach.
+Concerning the aim of the formal integral approach (improving the
+signal-to-noise in the synthetic spectrum), an alternative is already in place,
+namely the virtual packet scheme. However, for Tardis calculations using the
+downbranching scheme, the formal integral approach should be superior.
