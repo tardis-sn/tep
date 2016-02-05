@@ -24,7 +24,7 @@ stochastic fluctuations, i.e. noise. In the case of Tardis, this is particular
 relevant for the synthetic spectrum, the main product of Tardis calculations:
 to perform a detailed spectral analysis, the line features must be
 distinguishable from the noise. Thus, devising and implementing algorithms to
-improve the signal-to-noise ratio are crucial a curcial part of the Tardis
+improve the signal-to-noise ratio is a crucial part of the Tardis
 development process.
 
 Currently, the so-called virtual packet scheme (see `Long & Knigge 2002`_, `Sim et
