@@ -1,5 +1,5 @@
-TEP002: Meaningful title
-========================
+TEP002: TARDIS hdf5 data storage capabilities
+=============================================
 
 Status
 ======
@@ -50,12 +50,38 @@ We propose to be able to essentially store all relevant information in an HDF5
 file. Due to size constraints we also propose to be able to somehow select what
 data is stored.
 
+Reading simulation states is a future goal but out-of-scope for this TEP.
+A suggestion for adding the ability to read simulation state is to use
+`classmethods` for constructing the individual objects that are likely also
+used in TEP006 and can be implemented after TEP006 is implemented.
+
 Implementation
 ==============
 
-More to come.
+Hints of this implementation have existed for a long time within TARDIS. The
+general idea is to have each piece of information in an object with a `to_hdf`
+method that mirrors
+(http://pandas.pydata.org/pandas-docs/version/0.17.1/generated/pandas.DataFrame.to_hdf.html)
+All information is stored in an HDFStore in a pandas specific format. This ensures
+that ordering, column names, indices, etc. stay the same and makes it trivial
+to access the information. Data that are not in array form or simple array form
+should likely be converted to Pandas DataFrames or Series to be stored within the
+HDFStore. An alternative might be a pickling or json object that is then stored
+as a binary table within the HDF5 tree (maybe for dictionaries).
 
-**Storing Mode**: Maybe hardcoded sets of e.g. "minimal" or "detailed".
+the `to_hdf` method should take at least two arguments: 1) an HDFStore object
+and 2) a path to be stored within the hierarchical HDF5 file. This means that
+for level population the path might look like the following:
+`model001/plasma/level_population`.
+
+The end goal would be to have nested functions that would start with the top
+level `Simulation`-object and would propagate downwards into the hierarchical
+data structure within tardis (e.g. `Simulation.to_hdf` calls the
+`LegacyPlasma.to_hdf` and in turn calls the `PlasmaProperty.to_hdf`). This will
+also allow the higher level `.to_hdf`-methods to select specific information to
+store.
+
+This might be grouped in hardcoded sets like  "minimal" or "detailed".
 
 
 
