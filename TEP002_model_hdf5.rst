@@ -9,12 +9,13 @@ Status
 Responsible
 ===========
 
-TBD
+@unoebauer
+@wkerzendorf
 
 Branches and Pull requests
 ==========================
 
-N/A
+tardis-sn/tardis#435
 
 Description
 ===========
@@ -36,17 +37,28 @@ for diagnostic post processing of the run but which are not stored.
   the last interaction (needed to construct Kromer plots)
 * transitions probabilities (as seen in Issue #455, these are quite important)
 
-As a consequence, there should be the capability of storing the full model
-information in an HDF5 file. This capability may be an additional feature,
-living next to the possibility to store a minimal set of "essential"
-information about the run (similar to what the to_hdf5 currently does). As an
-alternative the to_hdf5 method may be rewritten to operate in two modes,
-minimal and detailed.
+There are several data located in different parts of the code that warrant
+storing. The following is a more or less complete list:
+
+* Radial1Dmodel
+* Plasma
+* MontecarloRunner
+* Simulation
+* atomic data
+
+We propose to be able to essentially store all relevant information in an HDF5
+file. Due to size constraints we also propose to be able to somehow select what
+data is stored.
 
 Implementation
 ==============
 
-N/A
+More to come.
+
+**Storing Mode**: Maybe hardcoded sets of e.g. "minimal" or "detailed".
+
+
+
 
 Backward compatibility
 ======================
