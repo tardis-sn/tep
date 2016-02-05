@@ -90,7 +90,7 @@ Sources
 
 We have identified a variety of sources for the different data:
 
-** Atomic masses **
+**Atomic masses**
 
 http://www.nist.gov/pml/data/comp.cfm
 http://www.nndc.bnl.gov/nudat2/index.jsp
@@ -100,6 +100,7 @@ http://www.nndc.bnl.gov/nudat2/index.jsp
 http://physics.nist.gov/PhysRefData/ASD/ionEnergy.html
 
 **Levels & transitions**
+
 http://kurucz.harvard.edu/atoms/1401/gf1401.gam
 http://www.chiantidatabase.org/chianti_direct_data.html - works well with chiantipy
 
