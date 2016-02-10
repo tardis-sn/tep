@@ -33,7 +33,16 @@ examples on how to write new plasma modules.
 Implementation
 ==============
 
-TBD
+Important steps for the implementation:
+
+- Modify the framework created for the plasma part to work for the whole model.
+  This framework should be it's own module and makes heavy use of networkx.
+
+- Adapt the plasma part to use the new module
+
+- Convert the procedural approach used when loading atomic data to use the new framework.
+
+- Connect everything in a way such that the networkx graph represents the model.
 
 Backward compatibility
 ======================
