@@ -55,6 +55,11 @@ need to somehow alert the group of this.
 3) A possible way to integrate these tests with GitHub is to use https://github.com/mikemcquaid/HookHand
 this allows us to run a script and deliver the result back to github on any server
 
+Extensive test suggestions
+==========================
+
+  - https://github.com/tardis-sn/tardis/pull/463
+
 
 Backward compatibility
 ======================
