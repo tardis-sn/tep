@@ -44,9 +44,18 @@ The following are the requirements for the commit messages:
 
     * maint: for reorganisation of the sources that do not change the source. Regular merge commits are a prominent example.
     * doc: for changes to the documentation.
+      
   * If your change only touches one file, then the filename of that file should be the prefix of the one-line description. The function or class that is being modified should be included in the parenthetical remark, as in the full body of the commit message.
     
-* If there is more than one file touched in different ways and the one-line description isn't enough to describe all changes, the commit message needs a full-body description. Individual files you touched get their changes separately enumerated. If there a particular C or C++ function you changed, the general format is:
+* If there is more than one file touched in different ways and the one-line description isn't enough to describe all changes, the commit message needs a full-body description. The full-body description would consist of a description of the changes and a list of changes to individual files. The description of changes should answer the following three questions:
+
+  * Why is this change necessary?
+  * How does it address the issue?
+  * What side effects does this change have?
+
+If the changes are simple and/or the answers to the above questions are obvious from the context then you can ommit it.
+
+  Individual files you touched get their changes separately enumerated. If there a particular C or C++ function you changed, the general format is:
 
   * file.py (class1.function1): Make change foo. 
      (class2.function2): Make change bar.
