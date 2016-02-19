@@ -17,6 +17,14 @@ Description
 Commit Message Guidelines
 -------------------------
 
+When to commit? Ask yourself the following questions:
+
+* Do the changes you have implemented represent a single cohesive feature? Break a large task down in to several subtasks.
+* Is the system in a build-able state after the commit? Don't do commits that you know will leave the system in a broken state.
+* Can your commit be safely rolled-back? Will the system be left in a broken state if you roll-back one commit? If so then maybe several commits should be merged.
+
+Preferably a commit should affect one file and do one thing only. For example resist the temptation to fix indentation in an unrelated file or in an unrelated class/method.
+
 When committing changes do not use -m option. This is only suitable for really short commit messages. Instead omit the message flag and you will be taken to your default text editor where you can enter the message. If you have already pushed the changes to a remote repository or if you have committed a change locally with a message that does not conform to the guidelines given below please use the following instructions to change commit messages:
 
 https://help.github.com/articles/changing-a-commit-message/
