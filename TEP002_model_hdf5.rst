@@ -4,18 +4,22 @@ TEP002: TARDIS hdf5 data storage capabilities
 Status
 ======
 
- **Discussion**
+ **Completed**
 
 Responsible
 ===========
 
+@ftsamis
 @unoebauer
 @wkerzendorf
+
 
 Branches and Pull requests
 ==========================
 
 tardis-sn/tardis#435
+
+Final PR: tardis-sn/tardis#606
 
 Description
 ===========
