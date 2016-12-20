@@ -4,17 +4,24 @@ TEP006: Configuration parsing improvement
 Status
 ======
 
-**Discussion**
+**Completed**
 
 Responsible
 ===========
 
 @wkerzendorf
+@ftsamis
 
 Branches and Pull requests
 ==========================
+tardis-sn/tardis#623
+tardis-sn/tardis#632
+tardis-sn/tardis#635
+tardis-sn/tardis#636
+tardis-sn/tardis#638
+tardis-sn/tardis#645
 
-N/A
+Final PR: tardis-sn/tardis#652
 
 
 Description
