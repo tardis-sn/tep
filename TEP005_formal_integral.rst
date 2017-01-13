@@ -54,7 +54,7 @@ Implementation
 * The main procedure, namely determining the line emissivities an performing
   the integral should be performed in the C-part of Tardis
 * It should be possible to activate/deactivate electron scattering
-* Calculation of the source function should be done in the C part for downbranch as well as for macroatom ( see equation 24, 25 and 26 of `Lucy 2002`_
+* Calculation of the source function should be done in the C part for downbranch as well as for macroatom ( see equation 24, 25 and 26 in `Lucy 2002 <http://www.aanda.org/articles/aa/ref/2002/11/aa1428/aa1428.html>`_)
 * It should be activated through the configuration file
 * Some safety checks should be in place, e.g. not allowing the parallel use of
   the formal integral and the virtual packet scheme or prohibiting the use of
@@ -63,7 +63,6 @@ Implementation
 * The formal integral should have an interface to the config system as well as the interactive model.
 * Photospheric initialization has to be discussed
 
-.. _Lucky 2002: http://www.aanda.org/articles/aa/ref/2002/11/aa1428/aa1428.html
 
 Backward compatibility
 ======================
