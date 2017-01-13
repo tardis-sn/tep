@@ -9,12 +9,13 @@ Status
 Responsible
 ===========
 
-@unoebauer
+@unoebauer @chvogl
 
 Branches and Pull requests
 ==========================
+`#678`_
 
-N/A
+.. _#678: https://github.com/tardis-sn/tardis/pull/678
 
 Description
 ===========
@@ -39,8 +40,8 @@ scheme exists. This approach, relying on a formal integration of the source
 function has been developed by `Lucy 1999`_ and produces noise-free spectra.
 
 This formal-integral approach should be implemented into Tardis and made an
-alternative to the virtual packet scheme, whenever the scatter or downbranch
-line interaction modes are used.
+alternative to the virtual packet scheme, whenever the scatter, downbranch or macroatom
+line interaction modes are used. Electron scattering should respect the configuration setting.
 
 .. _Lucy 1999: http://adsabs.harvard.edu/abs/1999A&A...345..211L
 .. _Long & Knigge 2002: http://adsabs.harvard.edu/abs/2002ApJ...579..725L
@@ -52,11 +53,17 @@ Implementation
 
 * The main procedure, namely determining the line emissivities an performing
   the integral should be performed in the C-part of Tardis
+* It should be possible to activate/deactivate electron scattering
+* Calculation of the source function should be done in the C part for downbranch as well as for macroatom ( see equation 24, 25 and 26 of `Lucy 2002`_
 * It should be activated through the configuration file
 * Some safety checks should be in place, e.g. not allowing the parallel use of
   the formal integral and the virtual packet scheme or prohibiting the use of
   the formal integral approach in conjunction with the macroatom line
   interaction treatment
+* The formal integral should have an interface to the config system as well as the interactive model.
+* Photospheric initialization has to be discussed
+
+.. _Lucky 2002: http://www.aanda.org/articles/aa/ref/2002/11/aa1428/aa1428.html
 
 Backward compatibility
 ======================
