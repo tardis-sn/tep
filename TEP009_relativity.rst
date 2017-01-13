@@ -48,8 +48,8 @@ included in TARDIS.
 Implementation
 ==============
 
-@chvogl will lead the implementation of part or all of the relevant changes as part 
-of this Type IIP project.
+@chvogl will lead the implementation of part or all of the relevant changes as
+part of this Type IIP project.
 
 Backward compatibility
 ======================
