@@ -1,5 +1,5 @@
-TEP009: Meaningful title
-========================
+TEP010: Consistent Treatment of relativistic effects
+====================================================
 
 Status
 ======
@@ -10,6 +10,8 @@ Responsible
 ===========
 
 @unoebauer, @ssim
+=======
+@chvogl, @unoebauer, @ssim
 
 Branches and Pull requests
 ==========================
@@ -48,12 +50,16 @@ included in TARDIS.
 Implementation
 ==============
 
-N/A
+@chvogl will lead the implementation of part or all of the relevant changes as
+part of this Type IIP project.
 
 Backward compatibility
 ======================
 
-N/A
+The proposed improvements will change the results of a TARDIS calculation. In most 
+cases, these changes should be small since TARDIS is designed for the applications
+in which relatistic effects are small or at most only important up to first order in
+v/c.
 
 Alternatives
 ============
