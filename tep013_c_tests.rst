@@ -4,20 +4,7 @@ TEP013: Improving c tests
 Status
 ======
 
-TEPs go through a number of phases in their lifetime:
-
-- **Discussion**: The TEP is being actively discussed and is
-  being improved by its author.  The mailing list
-  discussion of the TEP should include the TEP number (TEPxxx) in the
-  subject line so they can be easily related to the TEP.
-
-- **Progress**: Consensus was reached on the mailing list and
-  implementation work has begun.
-
-- **Completed**: The implementation has been merged into master.
-
-- **Superseded**: This TEP has been abandoned in favor of another
-  approach.
+**Discussion**
 
 Responsible
 ===========
