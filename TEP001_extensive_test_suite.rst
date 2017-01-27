@@ -1,10 +1,10 @@
-TEP001: Extensive Test Suites
+TEP001: Integration Test Suites
 =============================
 
 Status
 ======
 
-**Discussion**
+**In Progress**
 
 Responsible
 ===========
@@ -26,39 +26,30 @@ able to run for almost every single commit, the full tests might take several ho
 to complete. This is too resource intensive for our continuous integration service
 TRAVIS and for swift development.
 
-Ensuring to enable running of full-tests in a useful way this TEP aims to
-work on two major issues:
+The major issues are:
+
 1. allowing to create "slow" tests that are normally disabled
-2a. finding a way to run those in regular intervals
-2b. finding a way to couple the outcome of those to GitHub.
+2. Running them at regular intervals
+3. Monitoring them through a detailed output (webreport)
+4. Implementing different sets of them (e.g. Paper I, Paper II, fast, ...)
+
 
 Implementation
 ==============
 
-Our main testing system is py.test and we propose to keep these full tests also
-in this test system.
+We have implemented integration test suites within the py.test framework.
+Currently, these are run at a regular interval on the group server
+opensupernova.org. The web-reporting system is available at
+http://opensupernova.org/~wkerzend/tardis-integration/doku.php.
 
+We would like to expand the framework with the following features:
+  *  different integration test suites should be defined.
+  Our idea here is to have a set of tests which proceed relatively fast
+  and can thus be executed frequently and another set of very expensive
+  but very detailed and rigorous tests which will be repeated less often
+  * currently we only have plots showing us the expected vs actual values for
+  a very limited amount of TARDIS properties. We would like to expand this.git
 
-1) We suggest that we mark extensive and slow tests using the py.test marking system
-and skip them if no specific command-line flag is given.
-
-An important point for some of these tests would be the production of comparison
-plots. For now it is unclear how this would be facilitated, but maybe pytest-mpl
-can be helpful in this regard.
-
-2) For running this at a regular interval and inform us of any breakages, we
-suggest running it on the group server opensupernova.org. The system that we might
-be able to use is cron coupled with tox or direct py.test. On failure, we would
-need to somehow alert the group of this.
-
-
-3) A possible way to integrate these tests with GitHub is to use https://github.com/mikemcquaid/HookHand
-this allows us to run a script and deliver the result back to github on any server
-
-Extensive test suggestions
-==========================
-
-  - https://github.com/tardis-sn/tardis/pull/463
 
 
 Backward compatibility
