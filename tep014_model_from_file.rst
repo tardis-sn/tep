@@ -28,7 +28,7 @@ Store AtomData in file or require the same AtomData uuid for reading?
 Implementation
 ==============
 
-1. Add Simulation.from_h5(...) which instantiates a Simulation and recursivly
+1. Add Simulation.from_hdf(...) which instantiates a Simulation and recursivly
 load Model, Plasma and MonteCarloRunner from the file.
 2. Write tests ensuring save/load consistency
 
