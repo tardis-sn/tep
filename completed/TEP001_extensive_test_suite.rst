@@ -4,7 +4,12 @@ TEP001: Integration Test Suites
 Status
 ======
 
-**In Progress**
+**Complete**
+There has been an extensive push to have unit tests for the C-part
+as well as the other parts in TARDIS. We have now separate integration 
+tests that work. Implementing them into a weekly testing framework 
+still needs to be done. But that can be part of another TEP. 
+
 
 Responsible
 ===========
@@ -15,7 +20,7 @@ Responsible
 Branches and Pull requests
 ==========================
 
-None yet.
+N/A
 
 Description
 ===========

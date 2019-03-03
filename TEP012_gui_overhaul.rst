@@ -5,6 +5,7 @@ Status
 ======
 
 - **Discussion**:
+This will be replaced by new jupyter widgets.
 
 Responsible
 ===========

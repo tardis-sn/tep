@@ -4,7 +4,7 @@ TEP010: Consistent Treatment of relativistic effects
 Status
 ======
 
-- **Discussion**:
+**In Progress**:
 
 Responsible
 ===========
