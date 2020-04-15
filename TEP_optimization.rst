@@ -15,7 +15,8 @@ Responsible
 Branches and Pull requests
 ==========================
 
-[numba_montecarlo](https://github.com/tardis-sn/tardis/tree/numba_montecarlo)
+`numba_montecarlo
+<https://github.com/tardis-sn/tardis/tree/numba_montecarlo/>`_.
 
 #929
 
