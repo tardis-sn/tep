@@ -15,7 +15,7 @@ Responsible
 Branches and Pull requests
 ==========================
 
-[numba_montecarlo](https://github.com/tardis-sn/tardis/tree/numba_montecarlo)
+`numba_montecarlo<https://github.com/tardis-sn/tardis/tree/numba_montecarlo>`_
 
 #929
 
@@ -38,5 +38,6 @@ Implementation
     - refactoring certain parts of the code to e.g. eliminate repeated operations and costly data accesses, 
     - and large scale restructuring. 
 A number of different approaches should be explored and reviewed in order to find the optimal solution. 
+For numba routines, the performance tips described in the `numba documentation<http://numba.pydata.org/numba-doc/latest/user/performance-tips.html>`_ should be explored.
 For larger scale restructuring, this should be done in conjunction with the specific restructuring project.
 
