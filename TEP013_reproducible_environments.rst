@@ -53,7 +53,7 @@ more robust, allowing us to focus more on development than on fixing stuff.
 
 
 Implementation
-==============`
+==============
 
 The steps required to make this TEP work are:
 
