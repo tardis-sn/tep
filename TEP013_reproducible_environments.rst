@@ -34,48 +34,65 @@ changes on the YAML file.
 This behavior could lead to a few known issues that almost every TARDIS
 developer faced at least one time:
 
-a) tests passing locally and failing on CI/CD
-b) different test results for different users
-c) impossibity to recreate old environments
+a) tests passing locally and failing on CI/CD.
+b) different test results for different users.
+c) impossibity to recreate old environments.
 d) more...
 
 Environment reproducibility is not an exclusive problem of the TARDIS
 community, currently there's a running discussion between many developers
 about how to achieve this. On this TEP I propose to implement the
-`recommended solution <https://docs.conda.io/projects/conda/en/master/user-guide/tasks/manage-environments.html#building-identical-conda-environments>` 
+`recommended solution <https://docs.conda.io/projects/conda/en/master/user-guide/tasks/manage-environments.html#building-identical-conda-environments>`_ 
 by the ``conda`` developers: the generation of ``spec``
 files. The ``spec`` files contain the exact version of all the packages
 installed on an environment, removing the dependency solving step. Then,
-**we can unequivocally identify a TARDIS commit with a fixed environment.**
+**we can unequivocally identify a TARDIS commit with a fixed environment
+that can be installed at any point in the future.**
 
-The reproducibility of TARDIS environments will make our development cycle 
-more robust, allowing us to focus more on development than on fixing stuff.
+Also the reproducibility of TARDIS environments will make our development
+cycle more robust, allowing us to focus more on development than on
+fixing stuff (see next section).
 
 
 Implementation
 ==============
 
-The steps required to make this TEP work are:
+The main drawback of the ``conda list --explicit`` command is it does not
+recognize ``pip`` installed packages. A possible workaround is to separate
+``pip`` dependencies in a separate file ``extra_requirements.txt``
+and adapt the existing YAML recipe to use it::
+    - pip:
+        - r: file:extra_requirements.txt
 
-1. Make a new pipeline to periodically (weekly or monthly) solve the ``tardis_env3.yml`` environment file and run tests. If tests pass, dump the environment to the ``spec`` files (one per OS) by doing ``conda list --explicit`` and push these files to the repository. If tests fail, do nothing and wait for a fix on the `tardis_env3.yml` like we always do.
-2. Adapt the already existing pipelines to use the ``spec`` files.
-3. Update the installation guidelines.
+Then, installing the environment with ``conda env create -f tardis_env.yml``
+will work as usual.
+
+To make a ``spec`` file we would need to make a new pipeline
+to periodically solve ``tardis_env3.yml`` and install the environment
+for each platform and run the tests.  If tests pass, dump the dependencies
+to a ``tardis-{platform}.spec`` file by running ``conda list --explicit`` and
+push it to the repository.  If tests fail, try to fix the YAML file like we
+always do.
+
+Then, a reproducible environment is created by running::
+    conda env create -f tardis-{platform}.spec
+    pip install -r extra_requirements.txt
 
 
 Backward compatibility
 ======================
 
-Naturally, we can't reproduce environments prior of the implemantation of this TEP.
-
-Since we are not dropping the ``tardis_env3.yml`` file (we still need it to generate the ``spec`` files)
-this installation method should not break anything.
+Naturally, we can't reproduce environments prior of the implemantation of this TEP. But
+since the old installation method is still available this feature should not break
+anything.
 
 
 Alternatives
 ============
 
-`constructor <https://github.com/conda/constructor>` is an official package from the ``conda`` 
-developers to distribute packaged environments. With ``constructor`` you can make your own 
-Miniconda-like installer, shipping packages and installation scripts in a single binary file.
-
-We can think about ``constructor`` as a complement of the ``spec`` files.
+- `constructor <https://github.com/conda/constructor>`_ is an official package from the ``conda`` 
+  developers to distribute packaged environments. With ``constructor`` you can make your own 
+  Miniconda-like installer, shipping packages and installation scripts in a single binary file.
+  We can think about ``constructor`` as a complement of the ``spec`` files.
+- ``conda env export`` is similar to ``conda list --explicit`` and recognizes installed ``pip``
+  packages.
