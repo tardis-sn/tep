@@ -51,7 +51,7 @@ that can be installed at any point in the future.**
 
 Also the reproducibility of TARDIS environments will make our development
 cycle more robust, allowing us to focus more on development than on
-fixing stuff (see next section).
+fixing stuff.
 
 
 Implementation
@@ -64,20 +64,24 @@ and adapt the existing YAML recipe to use it::
     - pip:
         - r: file:extra_requirements.txt
 
-Then, installing the environment with ``conda env create -f tardis_env.yml``
-will work as usual.
+.. note:: Installing the environment with ``conda env create -f tardis_env.yml``
+          will work as usual.
 
 To make a ``spec`` file we would need to make a new pipeline
 to periodically solve ``tardis_env3.yml`` and install the environment
 for each platform and run the tests.  If tests pass, dump the dependencies
 to a ``tardis-{platform}.spec`` file by running ``conda list --explicit`` and
-push it to the repository.  If tests fail, try to fix the YAML file like we
-always do.
+push them to the repository. Then, a reproducible environment is created by running:
 
-Then, a reproducible environment is created by running::
-    conda env create -f tardis-{platform}.spec
-    pip install -r extra_requirements.txt
+.. code-block ::
 
+  $ conda env create -f tardis-{platform}.spec
+  $ pip install -r extra_requirements.txt
+
+If tests fail by a package update, developers
+and CI pipelines can keep working with the environment defined by the latest
+``spec`` file, without stopping the development cycle. Meanwhile, the CI/CD 
+team will try to fix the YAML file (like we already do!).
 
 Backward compatibility
 ======================
