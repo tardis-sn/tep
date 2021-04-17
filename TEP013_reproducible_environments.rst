@@ -64,8 +64,8 @@ and adapt the existing YAML recipe to use it::
     - pip:
         - r: file:extra_requirements.txt
 
-.. note:: Installing the environment with ``conda env create -f tardis_env.yml``
-          will work as usual.
+Installing the environment with ``conda env create -f tardis_env.yml``
+will work as usual.
 
 To make a ``spec`` file we would need to make a new pipeline
 to periodically solve ``tardis_env3.yml`` and install the environment
