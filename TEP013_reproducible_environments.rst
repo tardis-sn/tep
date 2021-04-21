@@ -43,15 +43,18 @@ Environment reproducibility is not an exclusive problem of the TARDIS
 community, currently there's a running discussion between many developers
 about how to achieve this. On this TEP I propose to implement the
 `recommended solution <https://docs.conda.io/projects/conda/en/master/user-guide/tasks/manage-environments.html#building-identical-conda-environments>`_ 
-by the ``conda`` developers: the generation of ``spec``
+by the ``conda`` developers: the generation of ``spec`` or ``lock``.
 files. The ``spec`` files contain the exact version of all the packages
 installed on an environment, removing the dependency solving step. Then,
 **we can unequivocally identify a TARDIS commit with a fixed environment
 that can be installed at any point in the future.**
 
-Also the reproducibility of TARDIS environments will make our development
+The reproducibility of TARDIS environments will make our development
 cycle more robust, allowing us to focus more on development than on
 fixing stuff.
+
+Also, these files let us to use `caching` on our pipelines, making them
+faster.
 
 
 Implementation
