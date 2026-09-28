@@ -15,8 +15,8 @@ proposed changes. We encourage an accompanying PR to the main TARDIS
 repository with some code or pseudo-code that quickly showcases the proposed changes. Once the group has iterated over the documented and agreed to implement
 the proposed changes the TEP is merged. If things change during the implementation the TEP should be amended.
 
-New TEPs should be created using the ``TEP_template.rst`` file in this repository.
-Just fork the repository, copy ``TEP_template.rst`` to ``TEPXXX.rst`` and issue a
+New TEPs should be created using the ``TEP_template.md`` file in this repository.
+Just fork the repository, copy ``TEP_template.md`` to ``TEPXXX.md`` and issue a
 PR with that file once you've written it up.  Be sure to look through the PRs in
 this repo first so that you choose an TEPXXX that reflects both those that are in
 the repository *and* those that are under discussion.
